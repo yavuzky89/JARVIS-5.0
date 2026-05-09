@@ -201,9 +201,11 @@ textarea:focus{border-color:rgba(0,212,255,0.4);border-bottom-color:#00d4ff;back
 </div>
 
 <script>
-// ── API KEY — buraya yeni key'inizi girin ────────────────────────
+// ── API KEY — buraya key'inizi girin ────────────────────────────
 const GEMINI_KEY = 'AIzaSyDBsrJYQRE809FhQUaFMkmAyzhsWEroETM';
-const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_KEY}`;
+function getApiUrl(){
+  return `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_KEY}`;
+}
 
 const SYSTEM_PROMPT = `Sen JARVIS'sin — Just A Rather Very Intelligent System. Tony Stark'ın yapay zeka asistanı gibi davranıyorsun.
 KİŞİLİK: Kibarca ama esprili, özgüvenli. Kullanıcıya "Efendim" de. Asla "Bir yapay zeka olarak..." deme.
@@ -277,4 +279,4 @@ function renderMD(text){
     else if(line.match(/^\d+\.\s/)){el=document.createElement('div');el.className='md-li ordered';el.appendChild(inl(line));}
     else if(line.startsWith('- ')||line.startsWith('* ')){el=document.createElement('div');el.className='md-li';el.appendChild(inl(line.slice(2)));}
     else if(line.trim()===''){el=document.createElement('div');el.className='md-br';}
-    else{el=doc
+    
